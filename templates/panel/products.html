@@ -1,0 +1,26 @@
+{% extends 'panel/base.html'%}
+
+{%block title%}
+Home
+{%endblock%}
+
+{%block contend%}
+<div>
+    <h2>Productos</h2>
+
+    <section>
+        {% for product in products%}
+        <div>
+            <img src="../../{{product.image}}" alt="">
+            <h3> <b>{{product.name}}</b> </h3>
+            <p>{{product.description}}</p>
+            <h4>{{product.price}}$</h4>            
+            <i>{{product.category}}</i>
+
+            <a href="modify/{{product.id}}/">Modificar</a>
+
+        </div>
+        {%endfor%}
+    </section>
+</div>
+{%endblock%}
