@@ -1,0 +1,25 @@
+BG PARFUM
+
+-Productos (Perfumes)
+Imagen
+Nombre
+Precio
+Descripcion
+Categoria
+Disponible
+
+
+-Categoria
+Nombre
+
+-Descuento
+Producto
+Codigo
+Catidad_Descuento
+Fecha_Activacion
+Fecha_Vencimiento
+
+Promociones
+Titulo
+Descripcion
+Imagen (opcional)
