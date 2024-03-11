@@ -1,23 +1,39 @@
 {% extends 'panel/base.html'%}
 
 {%block title%}
-Home
+Productos
 {%endblock%}
 
 {%block contend%}
 <div>
-    <h2>Productos</h2>
+    <ul class="my-4">
+        <li>
+            <a href="{% url 'panel_create_product' %}" class="bg-blue-600 px-4 py-2 text-white">Agregar Producto</a>
+        </li>
+    </ul>
 
-    <section>
+    <section class="flex flex-wrap">
         {% for product in products%}
-        <div>
-            <img src="../../{{product.image}}" alt="">
+        <div class="mr-2 my-2">
+            <div class="my-4">
+                {% if product.avaliable == 1%}
+                    <h2 class="bg-green-500 px-4 py-2 text-white rounded">Disponible</h2>
+                {%else%}
+                    <h2 class="bg-orange-500 px-4 py-2 text-white rounded">Agotado</h2>
+                {%endif%}
+            </div>
+
+            <img src="../../{{product.image}}" alt="BGPERFUM_product" class="max-w-48">
             <h3> <b>{{product.name}}</b> </h3>
             <p>{{product.description}}</p>
+            <p>Stock: {{product.stock}}</p>
             <h4>{{product.price}}$</h4>            
-            <i>{{product.category}}</i>
+            <p>{{product.category}}</p>
 
-            <a href="modify/{{product.id}}/">Modificar</a>
+            <div class="my-2">
+                <a href="modify/{{product.id}}/" class="bg-green-500 px-4 py-2 text-white rounded">Modificar</a>
+                <a href="modify/{{product.id}}/" class="bg-red-500 px-4 py-2 text-white rounded">Eliminar</a>
+            </div>
 
         </div>
         {%endfor%}

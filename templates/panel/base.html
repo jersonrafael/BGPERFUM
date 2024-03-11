@@ -1,58 +1,62 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- STYLES -->
+
+    <link rel="stylesheet" href="{% static 'src/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/create_category.css'%}">
+    
     <title>
         Panel |
         {% block title%}
-
         {%endblock%}
     </title>
 </head>
-<body>
+<body class="font-serif	">
 
-<div>
-    <aside>
-        <ul>
-            <li>
-                <a href="{% url 'panel_products' %}" >
+<div class="flex">
+
+    <aside class="flex items-center sm:h-screen px-16 mr-4" id="aside-bar">
+        <ul class="fixed sm:top-30 sm:text-6xl left-5 right-0">
+            <li class="my-4 sm:my-2">
+                <a class="text-xl " href="{% url 'panel_products' %}" >
                     Productos
                 </a>
             </li>
     
-            <li>
-                <a href="{% url 'panel_categorys' %}">
+            <li class="my-4 sm:my-2">
+                <a class="text-xl" href="{% url 'panel_categorys' %}">
                     Categorias
                 </a>            
             </li>
     
-            <li>
-                <a href="{% url 'panel_sales' %}">
+            <li class="my-4 sm:my-2">
+                <a class="text-xl" href="{% url 'panel_sales' %}">
                     Ventas
+                </a>
+            </li>
+
+            <li class="my-4 sm:my-2">
+                <a class="text-xl" href="{% url 'panel_sales' %}">
+                    Cupones
                 </a>
             </li>
         </ul>
     </aside>
     
     <div>
-    <h1>Panel de administracion</h1>
-        {% block contend%}
+            {% block contend%}
         
-        {%endblock%}
+            {%endblock%}
     </div>
 </div>
 
-<footer>BGPerfum</footer>
+<footer class="text-center bg-blue-600">BGPerfum</footer>
 </body>
 </html>
-<br>
-<br>
-<button>
-    {% if product.avaliable == True%}
-        {{'Comprar Ahora'}}
-    {%else%}
-        {{'Producto No disponible'}}
-    {%endif%}
-</button>

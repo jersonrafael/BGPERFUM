@@ -24,6 +24,7 @@ class product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.FloatField()
+    stock = models.IntegerField(default=0)
 
     discount_code = models.ForeignKey(discount,on_delete=models.CASCADE,default=None, null=True,blank=True)
     avaliable = models.BooleanField(default=True)

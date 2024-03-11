@@ -1,0 +1,30 @@
+{% extends 'panel/base.html'%}
+
+
+{%block title%}
+Categorias
+{%endblock%}
+
+{%block contend%}
+<div>
+    <ul class="my-4">
+        <li>
+            <a href="{% url 'panel_create_category' %}" class="bg-blue-600 px-4 py-2 text-white">Agregar Categoria</a>
+        </li>
+    </ul>
+
+    <div class="bg-blue-600">
+        {%for category in categorys%}
+            <div class="">
+                <h2 class="inline-block">{{category.name}}</h2>
+                <a href="" class="">Modificar</a>
+            </div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}
+
+<!-- <div class="border-2 w-full">
+    <h3 class="inline-block mr-4"><b>{{category.name}}</b></h3>
+    <a href="modify/{{category.id}}/">Modificar</a>
+</div> -->
