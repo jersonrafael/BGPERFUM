@@ -19,12 +19,16 @@ ALL VIEWS RELATED WITH THE PRODUCTS
 
 """
 
+# VIEW TO SEE ALL PRODUCTS
+
 def products_panel_view(request):
     model = product.objects.all()
     context = {
         "products":model
     }
     return render(request, template_name="panel/products.html", context=context)
+
+# VIEW TO SEE ONE PRODUCT WITH MORE DETAILS
 
 def product_panel_view(request,pk):
     model = get_object_or_404(product,pk=pk)
@@ -34,6 +38,8 @@ def product_panel_view(request,pk):
         'form':form
     }
     return render(request, template_name="panel/product_panel.html", context=context)
+
+# VIEW TO CREATE A PRODUCT
 
 def create_product_view(request):
     form = Product_form(request.POST, request.FILES)
@@ -52,30 +58,32 @@ def create_product_view(request):
         form = Product_form()
     return render(request,template_name="panel/create_product.html", context=context)
 
+# VIEW TO MODIFY A PRODUCT
+
 def modify_product_view(request,pk):
     model = get_object_or_404(product,pk=pk)
     form = Product_form(request.POST, request.FILES, instance=model)
     if request.method == "POST":
-        # data = request.POST
-        # update = model.update(name=data["name"],description=data["description"],stock=data["stock"])
-        # print(data)
         if form.is_valid():
             form.save()
             return redirect("panel_products")
         else:
-            # return redirect("panel_products")
-            return HttpResponse("Error")
+            return redirect("panel_products") 
     else:
         return redirect("panel_products")
+
+# VIEW TO DELETE A PRODUCT
 
 def delete_product_view(request,pk):
     context ={
         "Delete":"Estas seguro que deseas eliminar el producto?"
     }
     if request.method == "GET":
-        return render(request, template_name="delete_product.html",context=context)
+        return render(request, template_name="panel/delete_product.html",context=context)
     elif request.method == "POST":
-        return HttpRedirect("panel/products")
+        model = get_object_or_404(product, pk=pk)
+        model.delete()
+        return redirect("panel_products")
 
 """
 
@@ -104,9 +112,23 @@ def create_category_view(request):
         if form.is_valid():
             model = category.objects.create(name=request.POST["name"])
             model.save()
-            return HttpResponse("Valid")
+            return redirect("panel_categorys")
         else:
-            return HttpResponse("Not Valid")
+            return redirect("panel_categorys")
     else:
         form = Category_form()
     return render(request, template_name='panel/create_category.html',context=context)
+
+
+"""
+
+VIEWS TO MANAGE THE SELLS OR ORDERS
+
+"""
+
+def orders_panel_view(request):
+    form = order_form()
+    context = {
+        "form":form
+    }
+    return render(request, template_name="panel/orders_panel.html", context=context)

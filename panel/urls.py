@@ -13,7 +13,7 @@ urlpatterns = [
     path('categorys/', categorys_panel_view, name='panel_categorys'),
     path('add/category/', create_category_view, name='panel_create_category'),
     
-    path('sales/', products_panel_view, name='panel_sales'),
+    path('sales/', orders_panel_view, name='panel_sales'),
 
     # path('panel/delete/<int:pk>', products_panel_view, name='delete'),
 

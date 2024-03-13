@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from products.models import *
+from orders.models import *
 
 
 class Category_form(forms.Form):
@@ -66,3 +67,8 @@ class Product_form(forms.ModelForm):
     # name = forms.CharField(label="Nombre del Producto")
     # description = forms.CharField(label="Descripcion del Producto",widget=forms.Textarea)
     # price = forms.IntegerField(label="Precio del Producto")
+
+class order_form(forms.ModelForm):
+    class Meta:
+        model = order
+        fields = '__all__'
