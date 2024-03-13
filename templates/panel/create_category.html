@@ -5,13 +5,16 @@ Agregar Categoria
 {%endblock%}
 
 {%block contend%}
-<div class="my-4">
-    <a href="{% url 'panel_categorys' %}" class="bg-red-600 px-4 py-2 text-white" >Cancelar</a>
-</div>
 
-<form method="post">
-    {%csrf_token%}
-    {{form}}
-    <button type="submit" class="bg-blue-600 px-4 py-2 text-white my-4">Agregar</button>
-</form>
+<div class="">
+    <div class="my-4">
+        <a href="{% url 'panel_categorys' %}" class="bg-red-600 px-4 py-2 text-white" >Cancelar</a>
+    </div>
+    
+    <form method="post" class="">
+        {%csrf_token%}
+        {{form}}
+        <button type="submit" class="bg-blue-600 px-4 py-2 text-white my-8">Agregar</button>
+    </form>
+</div>
 {%endblock%}

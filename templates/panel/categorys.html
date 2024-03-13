@@ -6,19 +6,15 @@ Categorias
 {%endblock%}
 
 {%block contend%}
-<div>
-    <ul class="my-4">
-        <li>
-            <a href="{% url 'panel_create_category' %}" class="bg-blue-600 px-4 py-2 text-white">Agregar Categoria</a>
-        </li>
-    </ul>
+<div class="flex justify-center items-center">
+    
+    <div class="h-80">
+        <a href="{% url 'panel_create_category' %}" class="bg-blue-600 px-4 py-2 text-white hover:text-blue-700 my-4">Agregar Categoria</a>
 
-    <div class="bg-blue-600">
         {%for category in categorys%}
-            <div class="">
-                <h2 class="inline-block">{{category.name}}</h2>
-                <a href="" class="">Modificar</a>
-            </div>
+            <a href="" class="flex my-4 bg-red-600">
+                <h2 class="">{{category.name}}</h2>
+            </a>
         {%endfor%}
     </div>
 </div>
