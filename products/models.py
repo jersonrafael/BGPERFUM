@@ -28,7 +28,7 @@ class product(models.Model):
 
     discount_code = models.ForeignKey(discount,on_delete=models.CASCADE,default=None, null=True,blank=True)
     avaliable = models.BooleanField(default=True)
-    category = models.ForeignKey(category, on_delete=models.CASCADE,default=None)
+    category = models.ForeignKey(category, on_delete=models.SET_NULL,default=None,null=True, blank=True)
 
     added_date = models.DateField(auto_now=True)
 

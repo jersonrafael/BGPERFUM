@@ -18,11 +18,20 @@
         {%endblock%}
     </title>
 </head>
-<body class="font-serif	">
+<body class="font-roboto text-2xl">
+
+
 
 <div class="flex">
-    <aside class="flex items-center h-screen px-16 mr-4" id="aside-bar">
-        <ul class="fixed sm:top-30 sm:text-6xl left-5">
+    <aside class="h-screen flex items-center px-24 mr-4 overflow-hidden bg-green-600">
+        <ul class="">
+
+            <li class="my-4 sm:my-2">
+                <a class="text-xl " href="/panel/" >
+                    Inicio
+                </a>
+            </li>
+
             <li class="my-4 sm:my-2">
                 <a class="text-xl " href="{% url 'panel_products' %}" >
                     Productos
@@ -41,9 +50,15 @@
                 </a>
             </li>
 
-            <li class="my-4 sm:my-2">
+            <!-- <li class="my-4 sm:my-2">
                 <a class="text-xl" href="{% url 'panel_sales' %}">
                     Cupones
+                </a>
+            </li> -->
+
+            <li class="my-4 sm:my-2">
+                <a class="text-xl" href="/" target="_blank">
+                    Web
                 </a>
             </li>
         </ul>
@@ -55,7 +70,5 @@
             {%endblock%}
     </div>
 </div>
-
-<footer class="text-center bg-blue-600">BGPerfum</footer>
 </body>
 </html>

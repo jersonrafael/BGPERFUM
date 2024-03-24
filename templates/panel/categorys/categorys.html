@@ -1,0 +1,30 @@
+{% extends 'panel/base.html'%}
+
+
+{%block title%}
+Categorias
+{%endblock%}
+
+{%block contend%}
+<div class="w-full h-screen overflow-auto">
+    
+    <div class="my-4">
+        <a href="{% url 'panel_create_category' %}" class="bg-blue-600 px-4 py-2 text-white hover:text-blue-700 my-4">Agregar Categoria</a>
+    </div>
+
+    <div class="">
+        {%for category in categorys%}
+            <a href="/panel/edit/category/{{category.id}}/" class="flex justify-between my-4 px-4 py-2 border-b border-gray-500">
+                {{category.name}}
+
+                <i>{%if category.avaliable == 1%}
+                        Disponible
+                    {% else %}
+                        No Disponible
+                    {%endif%}
+                </i>
+            </a>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

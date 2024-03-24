@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+Inicio
+{% endblock title %}
+
+{% block contend %}
+<main class="mb-4 text-[#FFFCF5]">
+    <div class="flex items-center mt-4 mx-2 mb-4">
+        <div class="w-2/4 mr-4">
+            <h1 class="text-2xl sm:text-4xl md:text-6xl text-[#374375]">BG <i>PERFUM</i></h1>
+            <p class="rounded bg-[#BABDE2] px-4 py-2 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Cumque ipsam sed architecto facere, velit impedit alias
+                accusamus incidunt quo corporis tenetur molestias itaque? Pariatur officiis repellendus suscipit
+                voluptatibus
+                commodi quaerat.</p>
+        </div>
+        <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="" class="w-2/4 rounded">
+    </div>
+
+    <section class="flex justify-center bg-[#BABDE2] mx-8">   
+        <div class=" ">
+            <h2>Algunos Perfumes</h2>
+            {% for perfum in perfums%}
+            
+            <div>
+                <img src="" alt="">
+                <h4>{{perfum.name}}</h4>
+            </div>
+            {%endfor%}
+
+            <a href="">Quiero Ver Mas</a>
+        </div>
+    </section>
+</main>
+{% endblock contend %}

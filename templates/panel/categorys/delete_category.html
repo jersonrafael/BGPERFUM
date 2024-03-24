@@ -1,0 +1,28 @@
+{% extends "panel/base.html" %}
+
+{% block title %}
+Eliminar {{category}}
+{% endblock title %}
+
+{% block contend %}
+
+<section class="w-screen h-screen overflow-hidden">
+    <div class="ml-4 my-4">
+        <a href="/panel/edit/category/{{category.id}}/" class="bg-orange-600 px-4 py-2 text-white">Cancelar</a>
+    </div>
+
+    <div class="h-screen flex justify-center items-center">
+
+        <div class="">
+            <h2>Desea Elimnar Categoria <i>{{category}}</i></h2>
+            <span>
+                {{message}}
+            </span>
+            <form method="post" class="flex justify-center">
+                {%csrf_token%}
+                <button type="submit" class="bg-red-600 px-4 py-2 text-white">Eliminar</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock contend %}

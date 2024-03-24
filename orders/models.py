@@ -10,3 +10,12 @@ class order(models.Model):
     
     def __str__(self):
         return f"{self.client}"
+
+
+class sale(models.Model):
+    product = models.ForeignKey(product,default=None,on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.product} - {self.quantity}"

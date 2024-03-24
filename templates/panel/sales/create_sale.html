@@ -1,0 +1,30 @@
+{% extends "panel/base.html" %}
+
+{% block title %}
+Registrar Venta
+{% endblock title %}
+
+{% block contend %}
+<section class="w-screen">
+
+    <div>
+        <div class="my-4">
+            <a href="{% url 'panel_sales' %}" class="bg-orange-600 px-4 py-2 text-white">Cancelar</a>
+        </div>
+        <h2 class="text-center text-2xl">Registrar Nueva Venta</h2>
+        <h4 class="text-center text-red-600">
+            {% if message %}
+                {{ message }}
+            {%else%}
+            {% endif %}
+        </h4>
+        <section class="flex justify-center items-center w-screen h-screen">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form}}
+                <button type="submit" class="bg-green-600 px-4 py-2 text-white my-8">Agregar Venta</button>
+            </form>
+        </section>
+    </div>
+</section>
+{% endblock contend %}

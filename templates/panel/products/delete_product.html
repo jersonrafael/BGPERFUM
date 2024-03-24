@@ -1,0 +1,23 @@
+{% extends "panel/base.html" %}
+
+{% block title %}
+Eliminar
+{% endblock title %}
+
+{% block contend %}
+<div class="w-full">
+    <div class="my-4">
+        <a href="/panel/product/{{product.id}}/" class="bg-orange-600 px-4 py-2 text-white">Cancelar</a>
+    </div>
+    
+<section class="flex justify-center h-screen items-center ">
+    <div>
+        <h2> {{Delete}} </h2>
+        <form method="POST">
+            {% csrf_token%}
+            <button type="submit" class="bg-red-600 px-4 py-2 text-white">Eliminar</button>
+        </form>
+    </div>
+</section>
+</div>
+{% endblock contend %}

@@ -1,0 +1,21 @@
+{% extends "panel/base.html" %}
+
+{% block title %}
+Agregar Producto
+{% endblock title %}
+
+{% block contend %}
+<section class="w-full">
+    
+    <div class="my-4">
+        <a href="{% url 'panel_products' %}" class="bg-red-600 px-4 py-2 text-white">Cancelar</a>
+    </div>
+
+    <span class="text-red my-4">{{message}}</span>
+    <form method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form}}
+        <button type="submit" class="bg-green-600 px-4 py-2 text-white">Crear</button>
+    </form>
+</section>
+{% endblock contend %}

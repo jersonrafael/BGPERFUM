@@ -4,10 +4,14 @@ from products.models import *
 from orders.models import *
 
 
-class Category_form(forms.Form):
-    name = forms.CharField(label="Nombre de la Categoria",
-    error_messages={'required':'No dejes el campo vacio'}, 
-    widget=forms.TextInput(attrs={'class':'text-blue-600','autocomplete':'off'}))
+class Category_form(forms.ModelForm):
+    class Meta:
+        model= category
+        fields = '__all__'
+
+    # name = forms.CharField(label="Nombre de la Categoria",
+    # error_messages={'required':'No dejes el campo vacio'}, 
+    # widget=forms.TextInput(attrs={'class':'text-blue-600','autocomplete':'off'}))
 
 class Product_form(forms.ModelForm):
 
@@ -68,7 +72,7 @@ class Product_form(forms.ModelForm):
     # description = forms.CharField(label="Descripcion del Producto",widget=forms.Textarea)
     # price = forms.IntegerField(label="Precio del Producto")
 
-class order_form(forms.ModelForm):
+class sale_form(forms.ModelForm):
     class Meta:
-        model = order
+        model = sale
         fields = '__all__'

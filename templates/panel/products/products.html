@@ -1,0 +1,72 @@
+{% extends 'panel/base.html'%}
+
+{%block title%}
+Productos
+{%endblock%}
+
+{%block contend%}
+<div class="w-full h-screen overflow-auto">
+        <div class="my-4">
+            <a href="{% url 'panel_create_product' %}" class="bg-blue-600 px-4 py-2 text-white">Agregar Producto</a>
+        </div>
+
+    <section class="flex justify-center flex-wrap">
+        {% for product in page_obj%}
+        <a href="/panel/product/{{product.id}}/" class="md:w-90">
+            <div class="my-4 mx-4 py-2">
+                <div class="md:my-4 w-full">
+                    {% if product.stock >= 1%}
+                        <h2 class="bg-green-500 px-4 py-2 text-white rounded">Disponible</h2>
+                    {%else%}
+                        <h2 class="bg-orange-500 px-4 py-2 text-white rounded">Agotado</h2>
+                    {%endif%}
+                </div>
+
+                <div class="">
+                    <img src=" ../../{{product.image}} " alt="BGPERFUM_product" class="object-contain w-80 h-60 ">
+                </div>
+
+                <div>
+                    <h3><i>Nombre:</i> <b>{{product.name}}</b> </h3>
+                    <p><i>Descripcion:</i> <b>{{product.description}}</b></p>
+                    <p><i>Cantidad Disponible:</i>
+                        {% if product.stock <= 0 %}
+                            <b>No hay unidades</b>
+                        {% else %}
+                            <b>{{product.stock}}</b>
+                        {%endif%}
+                    </p>
+                    <h4><i>Precio:</i> <b>{{product.price}}$</b></h4>            
+                    <p>
+                        {% if product.category == None%}
+                            
+                        {% else %}
+                            <b>{{product.category}}</b>
+                        {%endif%}
+                    </p>
+                </div>
+            </div>
+        </a>
+        {%endfor%}
+
+        
+    </section>
+    <div class="pagination text-center">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Inicio</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+    
+            <span class="current">
+                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Final &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{%endblock%}

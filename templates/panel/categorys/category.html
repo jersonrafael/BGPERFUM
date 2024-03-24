@@ -1,0 +1,22 @@
+{% extends "panel/base.html" %}
+
+{% block contend %}
+<section class="">
+    <div>
+
+        <div class="ml-4 my-4">
+            <a href="/panel/categorys/" class="bg-orange-600 px-4 py-2 text-white">Cancelar</a>
+        </div>
+
+        <span class="text-center">{{message}}</span>
+        <div class="w-screen flex justify-center">
+            <form method="post">
+                {%csrf_token%}
+                {{form}}
+                <button type="submit">Modificar</button>
+                <a href="/panel/del/category/{{category.id}}/">Eliminar</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock contend %}
