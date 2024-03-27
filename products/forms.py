@@ -8,6 +8,10 @@ class Category_form(forms.ModelForm):
     class Meta:
         model= category
         fields = '__all__'
+        labels = {
+            'name':('Nombre de la categoria'),
+            'avaliable':('Disponible')
+        }
 
     # name = forms.CharField(label="Nombre de la Categoria",
     # error_messages={'required':'No dejes el campo vacio'}, 
@@ -24,7 +28,7 @@ class Product_form(forms.ModelForm):
             'description': ("Descripcion del Producto"),
             'price':("Precio del Producto"),
             'stock':("Catidad disponible del Producto"),
-            'discount_code':("Codigo de descuento (Opcional)"),
+            'diPscount_code':("Codigo de descuento (Opcional)"),
             'avaliable':("Si el producto esta o no disponible"),
             'category':("Categoria del producto")
 
@@ -76,3 +80,8 @@ class sale_form(forms.ModelForm):
     class Meta:
         model = sale
         fields = '__all__'
+        labels = {
+            'product':('Nombre del producto'),
+            'quantity':('Cantidad')
+        }
+        

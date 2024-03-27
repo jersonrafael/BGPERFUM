@@ -1,72 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="{% static 'src/css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'src/css/create_category.css'%}">
-    
-    <title>
-        Panel |
-        {% block title%}
-        {%endblock%}
-    </title>
-</head>
-<body class="font-roboto text-2xl">
+    <link rel="stylesheet" href="{% static 'src/css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'src/css/create_category.css'%}" />
 
-
-
-<div class="flex">
-    <aside class="border flex items-center px-24 mr-4 overflow-hidden">
+    <title>Panel | {% block title%} {%endblock%}</title>
+  </head>
+  <body class="font-roboto text-2xl">
+    <div class="flex">
+      <aside
+        class="border flex justify-center items-center px-24 overflow-hidden mr-2"
+      >
         <ul class="">
+          <li class="my-4 sm:my-2">
+            <a class="text-xl" href="/panel/"> Inicio </a>
+          </li>
 
-            <li class="my-4 sm:my-2">
-                <a class="text-xl " href="/panel/" >
-                    Inicio
-                </a>
-            </li>
+          <li class="my-4 sm:my-2">
+            <a class="text-xl" href="{% url 'panel_products' %}"> Productos </a>
+          </li>
 
-            <li class="my-4 sm:my-2">
-                <a class="text-xl " href="{% url 'panel_products' %}" >
-                    Productos
-                </a>
-            </li>
-    
-            <li class="my-4 sm:my-2">
-                <a class="text-xl" href="{% url 'panel_categorys' %}">
-                    Categorias
-                </a>            
-            </li>
-    
-            <li class="my-4 sm:my-2">
-                <a class="text-xl" href="{% url 'panel_sales' %}">
-                    Ventas
-                </a>
-            </li>
+          <li class="my-4 sm:my-2">
+            <a class="text-xl" href="{% url 'panel_categorys' %}">
+              Categorias
+            </a>
+          </li>
 
-            <!-- <li class="my-4 sm:my-2">
+          <li class="my-4 sm:my-2">
+            <a class="text-xl" href="{% url 'panel_sales' %}"> Ventas </a>
+          </li>
+
+          <!-- <li class="my-4 sm:my-2">
                 <a class="text-xl" href="{% url 'panel_sales' %}">
                     Cupones
                 </a>
             </li> -->
 
-            <li class="my-4 sm:my-2">
-                <a class="text-xl" href="/" target="_blank">
-                    Web
-                </a>
-            </li>
+          <li class="my-4 sm:my-2">
+            <a class="text-xl" href="/" target="_blank"> Web </a>
+          </li>
         </ul>
-    </aside>
-    
-    <div class="flex justify-center w-full">
-            {% block contend%}
-        
-            {%endblock%}
+      </aside>
+
+      <div class="flex justify-center w-full">
+        {% block contend%} {%endblock%}
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

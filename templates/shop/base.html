@@ -1,17 +1,45 @@
-{% include "shop/includes/header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>
+        BG PERFUM |
+        {% block title %}
+
+        {% endblock title %}
+    </title>
+</head>
+
+<body class="">
 
     <header class="text-[#FFFCF5] ">
         <nav>
             <ul class="flex justify-between items-center bg-[#374375] py-4">
 
-                <img src="" alt="bg_perfum_logo" class="ml-4">
+                <a href="/">
+                    <img src="" alt="bg_perfum_logo" class="ml-4">
+                </a>
+
+                <form>
+                    <input type="text" name="" class="px-4 text-black outline-none rounded-md" placeholder="Busca tu fragancia...">
+                    <button type="submit" class="ml-2 ">
+                        Buscar
+                    </button>
+                </form>
 
                 <div class="mr-4">
-                    <li class="inline-block">
-                        <a href="">Perfumes</a>
+                    <li class="inline-block mx-4">
+                        <a href=" {% url 'home' %} ">Inicio</a>
                     </li>
 
-                    <li class="inline-block">
+                    <li class="inline-block mx-4">
+                        <a href=" {% url 'products' %} ">Perfumes</a>
+                    </li>
+
+                    <li class="inline-block mx-4">
                         <a href="" class="">Quienes Somos</a>
                     </li>
                 </div>

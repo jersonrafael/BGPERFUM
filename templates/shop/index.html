@@ -18,7 +18,7 @@ Inicio
         <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="" class="w-2/4 rounded">
     </div>
 
-    <section class="bg-[#BABDE2] mx-8 py-4">   
+    <section class="rounded-md bg-[#BABDE2] mx-8 py-4">   
         <h2 class="text-2xl md:text-4xl text-center">Algunos Perfumes</h2>
         <div class="grid grid-cols-4 gap-4 place-items-center mx-6 my-4">
             {% for perfum in perfums%}
@@ -29,16 +29,17 @@ Inicio
             {%endfor%}
         </div>
         <div class="flex justify-center text-xl md:text-2xl">
-            <a href="">Quiero Ver Mas</a>
+            <a href="{% url 'products' %}">Quiero Ver Mas</a>
         </div>
     </section>
 
     <section class="text-[#374375] grid grid-cols-2 gap-4 my-8 mx-8">
-        <div>
-            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="bgperfum_img">
-        </div>
 
         <div>
+            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="bgperfum_img" class='place-self-center'>
+        </div>
+
+        <div class='place-self-center'>
             <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -47,8 +48,8 @@ Inicio
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
         </div>
 
-        <div>
-            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        <div class='place-self-center'>
+            <h2 class=''>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -57,7 +58,7 @@ Inicio
         </div>
 
         <div>
-            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="">
+            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="" class='place-self-center'>
         </div>
     </section>
 
@@ -84,9 +85,9 @@ Inicio
         </ul>
     </section>
 
-    <section class="text-center bg-[#BABDE2] mx-8 my-8 py-12">
-        <h2 class="text-2xl md:text-4xl">Quienes Somos?</h2>
-        <p class="my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    <section class="rounded-md text-center bg-[#BABDE2] mx-8 my-8 py-12 px-4">
+        <h2 class="text-xl md:text-2xl">Quienes Somos?</h2>
+        <p class="my-4 text-xs md:text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse

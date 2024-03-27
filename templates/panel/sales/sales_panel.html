@@ -1,28 +1,30 @@
-{% extends "panel/base.html" %}
-
-{% block title %}
-Ventas
-{% endblock title %}
-
+{% extends "panel/base.html" %} {% block title %} Ventas {% endblock title %} {%
 {% block contend %}
 <div class="w-full h-screen overflow-auto">
+  <div class="my-4">
+    <a
+      href="{% url 'panel_create_sale' %}"
+      class="bg-blue-600 px-4 py-2 text-white"
+      >Registrar nueva venta</a
+    >
+  </div>
 
-    <div class="my-4">
-        <a href="{% url 'panel_create_sale' %}" class="bg-blue-600 px-4 py-2 text-white">Registrar nueva venta</a>
-    </div>
-
-    <h2 class="mt-4 text-center text-2xl">Ventas</h2>
-    <section class="flex flex-wrap justify-center h-screen mt-4">
-        {% for sale in sales %}
-        <a href="/panel/sale/{{sale.id}}/">
-            <div class="mx-4 my-4">
-                <img src="../../{{sale.product.image}}" alt="" class="w-full h-60 object-contain">
-                <h2><i>Producto: </i>{{sale.product}} </h2>
-                <h2><i>Cantidad: </i>{{sale.quantity}}</h2>
-                <h2> <i>{{sale.date}}</i> </h2>
-            </div>
-        </a>
-        {%endfor%}
-    </section>
+  <h2 class="mt-4 text-center text-2xl">Ventas</h2>
+  <section class="flex flex-wrap justify-center h-screen mt-4">
+    {% for sale in sales %}
+    <a href="/panel/sale/{{sale.id}}/">
+      <div class="mx-4 my-4">
+        <img
+          src="../../{{sale.product.image}}"
+          alt=""
+          class="w-full h-60 object-contain"
+        />
+        <h2><i>Producto: </i>{{sale.product}}</h2>
+        <h2><i>Cantidad: </i>{{sale.quantity}}</h2>
+        <h2><i>{{sale.date}}</i></h2>
+      </div>
+    </a>
+    {%endfor%}
+  </section>
 </div>
 {% endblock contend %}
