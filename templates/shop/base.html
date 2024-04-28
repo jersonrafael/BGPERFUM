@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.cdnfonts.com/css/futura-lt" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
     <title>
         BG PERFUM |
         {% block title %}
@@ -14,10 +18,12 @@
 </head>
 
 <body class="">
+    
+    <header class="border border-b-black">
 
-    <header class="text-[#FFFCF5] ">
+        <h2 class='bg-black text-center text-sm text-white py-2'>PRODUCTOS 100% ORIGINALES</h2>
         <nav>
-            <ul class="flex justify-between items-center bg-[#374375] py-4">
+            <ul class="flex justify-between items-center py-4">
 
                 <a href="/">
                     <img src="" alt="bg_perfum_logo" class="ml-4">

@@ -8,8 +8,8 @@ Inicio
 <main class="mb-4 text-[#FFFCF5]">
     <div class="flex items-center mt-4 mx-2 mb-4">
         <div class="w-2/4 mr-4">
-            <h1 class="text-2xl sm:text-4xl md:text-6xl text-[#374375]">BG <i>PERFUM</i></h1>
-            <p class="rounded text-[#374375] px-4 py-2 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <h1 class="text-2xl sm:text-4xl md:text-6xl text-black">BG <i>PERFUM</i></h1>
+            <p class="rounded text-gray-900 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Cumque ipsam sed architecto facere, velit impedit alias
                 accusamus incidunt quo corporis tenetur molestias itaque? Pariatur officiis repellendus suscipit
                 voluptatibus
@@ -18,25 +18,26 @@ Inicio
         <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="" class="w-2/4 rounded">
     </div>
 
-    <section class="rounded-md bg-[#BABDE2] mx-8 py-4">   
-        <h2 class="text-2xl md:text-4xl text-center">Algunos Perfumes</h2>
+    <section class="rounded-md mx-8 py-4">   
+        <h2 class="text-black text-2xl md:text-4xl text-center">Algunos Perfumes</h2>
         <div class="grid grid-cols-4 gap-4 place-items-center mx-6 my-4">
             {% for perfum in perfums%}
-            <div>
+            <div class='text-black'>
                 <img src="{{perfum.image}}" alt="">
-                <h4>{{perfum.name}}</h4>
+                <h4 class='text-center'><b>{{perfum.name}}</b></h4>
+                <h5 class='text-sm text-center'> {{perfum.price}} </h5>
             </div>
             {%endfor%}
         </div>
-        <div class="flex justify-center text-xl md:text-2xl">
+        <div class="flex justify-center text-sm md:text-md text-black">
             <a href="{% url 'products' %}">Quiero Ver Mas</a>
         </div>
     </section>
 
-    <section class="text-[#374375] grid grid-cols-2 gap-4 my-8 mx-8">
+    <section class="text-black grid grid-cols-2 gap-4 my-8 mx-8">
 
         <div>
-            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="bgperfum_img" class='place-self-center'>
+            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="bgperfum_img" class='place-self-center rounded-md'>
         </div>
 
         <div class='place-self-center'>
@@ -58,7 +59,7 @@ Inicio
         </div>
 
         <div>
-            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="" class='place-self-center'>
+            <img src="../../static/original-9cfc0f25a37d68687c7c9283804b8f5b.png" alt="" class='place-self-center rounded-md'>
         </div>
     </section>
 
@@ -85,14 +86,12 @@ Inicio
         </ul>
     </section>
 
-    <section class="rounded-md text-center bg-[#BABDE2] mx-8 my-8 py-12 px-4">
-        <h2 class="text-xl md:text-2xl">Quienes Somos?</h2>
-        <p class="my-4 text-xs md:text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <section class="rounded-md text-center bg-gray-200 py-24 my-4">
+        <h2 class="text-xl md:text-2xl text-black">Suscribete y obten descuentos</h2>
+        <form action="" class="my-2">
+            <input type="email" name="" id="" placeholder="Introduce tu correo" class="bg-gray-200 border-black border-b-2 outline-none text-black">
+            <button type="submit" class="text-black">suscribeme</button>
+        </form>
     </section>
 </main>
 {% endblock contend %}

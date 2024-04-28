@@ -1,17 +1,15 @@
-<section class="flex">
+<section class="flex h-screen">
 
-    <aside class="w-80 border-[#374375] border-r-2">
-        <h3 class="text-center my-2 border-[#374375] border-b-2 py-2">Filtrar por categorias</h3>
+    <aside class="w-80 border-black border-r-[1px]">
+        <h3 class="text-center my-2 py-2">Filtrar por categorias</h3>
         
-        <form method="post">
-            {% for category in categorys%}
-                <label>{{category.name}}</label>
-                <input type="checkbox" name="{{category.name}}" >
-            {%endfor%}
-    
-            <button type="submit" class="rounded block px-4 py-2 text-[#FFFCF5] bg-blue-900 mx-4 my-2">Filtrar</button>
-        </form>
-    
+        <ul>
+            {% for category in categorys %}
+                <li class='mx-4 my-2' >
+                    <a href="{{category.id}}">{{category.name}}</a>
+                </li>
+            {% endfor %}
+        </ul>
     </aside>
     
     
@@ -22,8 +20,8 @@
             {% for product in products %}
                 <a href="{{product.id}}/">
                     <img src="../{{product.image}}" alt="product_image" class="rounded-md">
-                    <h2>{{product.name}}</h2>
-                    <h3>{{product.price}}</h3>
+                    <h2 class="text-[14px]">{{product.name}}</h2>
+                    <h3 class="text-[12px]">{{product.price}}</h3>
                 </a>
             {% endfor %}
         </div>
