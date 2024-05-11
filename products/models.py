@@ -18,6 +18,8 @@ class discount(models.Model):
     def __str__(self):
         return f"{self.code}"
 
+class olfactory_family(models.Model):
+    name = models.CharField(max_length=255)
 
 class product(models.Model):
     image = models.ImageField(upload_to="static",default=None)
@@ -29,6 +31,8 @@ class product(models.Model):
     discount_code = models.ForeignKey(discount,on_delete=models.CASCADE,default=None, null=True,blank=True)
     avaliable = models.BooleanField(default=True)
     category = models.ForeignKey(category, on_delete=models.SET_NULL,default=None,null=True, blank=True)
+    bottle_contend = models.IntegerField(default=0)
+    olfactory_family = models.ForeignKey(olfactory_family, on_delete=models.SET_NULL, default=None, null=True, blank=True)
 
     added_date = models.DateField(auto_now=True)
 

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.cdnfonts.com/css/futura-lt" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}?{% now 'U' %}">
     <title>
         BG PERFUM |
         {% block title %}
@@ -18,10 +18,7 @@
 </head>
 
 <body class="">
-    
-    <header class="border border-b-black">
-
-        <h2 class='bg-black text-center text-sm text-white py-2'>PRODUCTOS 100% ORIGINALES</h2>
+    <header class="sticky top-0 backdrop-blur">
         <nav>
             <ul class="flex justify-between items-center py-4">
 
@@ -29,16 +26,24 @@
                     <img src="" alt="bg_perfum_logo" class="ml-4">
                 </a>
 
-                <form>
-                    <input type="text" name="" class="px-4 text-black outline-none rounded-md" placeholder="Busca tu fragancia...">
-                    <button type="submit" class="ml-2 ">
-                        Buscar
+                <form class="flex aling-center w-1/5" method="post" action="/search/">
+                    {% csrf_token %}
+                    <input type="text" name="search" class="w-full text-black outline-none border-b-[1px] border-black bg-inherit"
+                        placeholder="Busca tu fragancia..." autofocus autocomplete="off">
+                    <button type="submit" class=" border-b-[1px] border-black">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
                     </button>
                 </form>
 
                 <div class="mr-4">
                     <li class="inline-block mx-4">
-                        <a href=" {% url 'home' %} ">Inicio</a>
+                        <a href=" {% url 'home' %} " class="flex items-center">
+                            Inicio
+                        </a>
                     </li>
 
                     <li class="inline-block mx-4">

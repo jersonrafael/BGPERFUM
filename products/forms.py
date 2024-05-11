@@ -34,14 +34,14 @@ class Product_form(forms.ModelForm):
 
         }
         widgets={
-            'image': forms.FileInput(attrs={'class': 'image-input_form'}),
-            'name': forms.TextInput(attrs={'class': 'name-input_form'}),
-            'description': forms.Textarea(attrs={'class': 'description-input_form'}),
-            'price': forms.TextInput(attrs={'class': 'price-input_form'}),
-            'stock': forms.TextInput(attrs={'class': 'stock-input_form'}),
-            'discount_code': forms.Select(attrs={'class': 'discount_code-input_form'}),
-            'avaliable': forms.CheckboxInput(attrs={'class': 'avaliable-input_form'}),
-            'category': forms.Select(attrs={'class': 'category-input_form'}),
+            'image': forms.FileInput(attrs={'class': 'image-input_form inline-block text-sm'}),
+            'name': forms.TextInput(attrs={'class': 'name-input_form text-sm'}),
+            'description': forms.Textarea(attrs={'class': 'description-input_form flex text-sm'}),
+            'price': forms.TextInput(attrs={'class': 'price-input_form text-sm'}),
+            'stock': forms.TextInput(attrs={'class': 'stock-input_form text-sm'}),
+            'discount_code': forms.Select(attrs={'class': 'discount_code-input_form text-sm'}),
+            'avaliable': forms.CheckboxInput(attrs={'class': 'avaliable-input_form text-sm'}),
+            'category': forms.Select(attrs={'class': 'category-input_form text-sm'}),
 
 
         }
