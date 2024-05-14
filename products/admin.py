@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(product)
 admin.site.register(category)
 admin.site.register(discount)
+admin.site.register(olfactory_family)

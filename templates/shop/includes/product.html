@@ -1,7 +1,7 @@
 <main class="my-6">
     <div class="flex justify-center items-center my-4">
         <div class="w-[550px] mx-4">
-            <img src="../{{product.image}}" alt="" class="object-contain">
+            <img src="../../../{{product.image}}" alt="" class="object-contain">
         </div>
 
         <div>
@@ -15,7 +15,10 @@
                 </div>
                 <p class="my-4 text-sm">{{product.description}}</p>
                 <h2 class="my-4 text-[12px]">Presentacion:{{product.bottle_contend}}ml</h2>
-                <h2 class="my-4 text-[12px]">Familia Olfativa:</h2>
+                {% if product.olfactory_family != None %}
+                    <h2 class="my-4 text-[12px]">Familia Olfativa:</h2>
+                {% else%}
+                {% endif %}
             </div>
 
 
@@ -51,7 +54,7 @@
             {% for product in recomended %}
             <li class="mx-2">
                 <a href="{{product.id}}">
-                    <img src="../{{product.image}}" alt="" class="rounded-md md:w-[300px] md:h-[250px] object-contain">
+                    <img src="../../../{{product.image}}" alt="" class="rounded-md md:w-[300px] md:h-[250px] object-contain">
                     <h2> {{product.name}} </h2>
                     <h4></h4>
                 </a>

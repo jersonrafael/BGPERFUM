@@ -16,6 +16,7 @@ urlpatterns = [
     path('add/category/', create_category_view, name='panel_create_category'),
     
     path('sales/', orders_panel_view, name='panel_sales'),
+    path('sale/<int:pk>', order_panel_view, name='panel_sale'),
     path('sale/add/', create_order_panel_view, name='panel_create_sale'),
 
     # path('panel/delete/<int:pk>', products_panel_view, name='delete'),

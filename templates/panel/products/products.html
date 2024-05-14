@@ -7,18 +7,18 @@ Productos
 {%block contend%}
 <div class="w-full h-screen overflow-auto">
         <div class="my-4">
-            <a href="{% url 'panel_create_product' %}" class="bg-blue-600 px-4 py-2 text-white text-[16px]">Agregar Producto</a>
+            <a href="{% url 'panel_create_product' %}" class="bg-black px-4 py-2 text-white">Agregar Producto</a>
         </div>
 
-    <section class="flex justify-center flex-wrap">
+    <section class="flex justify-start flex-wrap">
         {% for product in page_obj%}
         <a href="/panel/product/{{product.id}}/" class="md:w-90">
             <div class="my-4 mx-4 py-2">
                 <div class="md:my-4 w-full">
-                    {% if product.stock >= 1%}
-                        <h2 class="bg-green-500 px-4 py-2 text-white rounded">Disponible</h2>
+                    {% if product.avaliable != False%}
+                        <h2 class="bg-black px-4 py-2 text-white text-sm rounded">Disponible</h2>
                     {%else%}
-                        <h2 class="bg-orange-500 px-4 py-2 text-white rounded">Agotado</h2>
+                        <h2 class="bg-gray-700 px-4 py-2 text-white text-sm rounded">Agotado</h2>
                     {%endif%}
                 </div>
 
@@ -37,13 +37,6 @@ Productos
                         {%endif%}
                     </p>
                     <h4><i>Precio:</i> {{product.price}}$</h4>            
-                    <p>
-                        {% if product.category == None%}
-                            
-                        {% else %}
-                            <b>{{product.category}}</b>
-                        {%endif%}
-                    </p>
                 </div>
             </div>
         </a>

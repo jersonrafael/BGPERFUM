@@ -21,6 +21,9 @@ class discount(models.Model):
 class olfactory_family(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return f"{self.name}"
+
 class product(models.Model):
     image = models.ImageField(upload_to="static",default=None)
     name = models.CharField(max_length=255)

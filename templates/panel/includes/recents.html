@@ -1,0 +1,35 @@
+<section class="block">
+
+    <div>
+        <h2 class="text-center">
+            Ventas recientes
+        </h2>
+    
+        {% for sale in sales %}
+        <div class="inline-block w-[200px]">
+            <a href="sale/">
+                <img src="../../../{{sale.product.image}}" alt="">
+                <h2>{{sale.product.name}}</h2>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center">
+        <h2>Productos recien agregados</h2>
+
+        {% for product in products %}
+        <div class="inline-block w-[200px] h-[200px]">
+            <a href="">
+                <img src="../../../{{product.image}}" alt="">
+                <h2>{{product.name}}</h2>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center">
+        Campañas recien enviadas
+    </div>
+
+</section>

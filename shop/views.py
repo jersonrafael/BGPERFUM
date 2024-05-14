@@ -28,6 +28,7 @@ def products(request):
 
 def filter_product(request, pk):
     product_model = get_object_or_404(product, pk=pk)
+    print(product_model.olfactory_family)
     recomended = product.objects.order_by('?')[:5]
     # related_products = product.objects.get(category__contains=f'')
     context = {
