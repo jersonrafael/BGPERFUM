@@ -1,0 +1,10 @@
+Numero de orden ______
+Me interesa este producto ____
+
+Productos totales:
+Monto total: $ 
+
+-----------
+Mensaje para el usuario:
+
+Hola tu orden ha sido enviada sera procesada por nuestros vendedores y sera respondida cuanto antes y procederemos a darte mas informacion, si tienes alguna duda sobre algun producto o inconvenientes escribelo por aca.
