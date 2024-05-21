@@ -1,34 +1,38 @@
-<section class="block">
+<section class="">
 
-    <div>
-        <h2 class="text-center">
+    <div class="my-8">
+        <h2 class="text-center text-gray-500">
             Ventas recientes
         </h2>
-    
-        {% for sale in sales %}
-        <div class="inline-block w-[200px]">
-            <a href="sale/">
-                <img src="../../../{{sale.product.image}}" alt="">
+
+        <div class="my-4 ">
+            {% for sale in sales %}
+            <a href="{{sale.id}}/" class="flex items-center justify-between my-4 mx-8 py-4 px-4 border-[1px] border-white bg-white rounded-md text-[16px] hover:-translate-y-1 duration-100">
+                <img src="../../../{{sale.product.image}}" alt=""
+                    class="rounded-md md:w-[80px] md:h-[40px] object-contain">
                 <h2>{{sale.product.name}}</h2>
+                <h2>{{sale.date}}</h2>
             </a>
+            {%endfor%}
         </div>
-        {% endfor %}
     </div>
 
-    <div class="text-center">
-        <h2>Productos recien agregados</h2>
+    <div class="my-8 text-center">
+        <h2 class="text-gray-500">Productos recien agregados</h2>
 
-        {% for product in products %}
-        <div class="inline-block w-[200px] h-[200px]">
-            <a href="">
-                <img src="../../../{{product.image}}" alt="">
+        <div class="my-4 ">
+            {% for product in products %}
+            <a href="{{product.id}}/"
+                class="flex items-center justify-between my-4 mx-8 py-4 px-4 border-[1px] border-white bg-white rounded-md text-[16px] hover:-translate-y-1 duration-100">
+                <img src="../../../{{product.image}}" alt="" class="rounded-md md:w-[80px] md:h-[40px] object-contain">
                 <h2>{{product.name}}</h2>
+                <h2>{{product.price}}$</h2>
             </a>
+            {%endfor%}
         </div>
-        {% endfor %}
     </div>
 
-    <div class="text-center">
+    <div class="my-8 text-center text-gray-500">
         Campañas recien enviadas
     </div>
 

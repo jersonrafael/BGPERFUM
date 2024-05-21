@@ -6,15 +6,15 @@ Categorias
 {%endblock%}
 
 {%block contend%}
-<div class="w-full h-screen overflow-auto">
+<div class="w-[72rem] h-screen">
     
-    <div class="my-4">
-        <a href="{% url 'panel_create_category' %}" class="bg-black px-4 py-2 text-white my-4">Agregar Categoria</a>
+    <div class="my-4 hover:-translate-y-1 duration-100">
+        <a href="{% url 'panel_create_category' %}" class="bg-black px-4 py-2 text-white my-4 mx-2">Agregar Categoria</a>
     </div>
 
     <div class="">
         {%for category in categorys%}
-            <a href="/panel/edit/category/{{category.id}}/" class="flex justify-between my-4 px-4 py-2 border-b border-gray-500 text-[18px]">
+            <a href="/panel/edit/category/{{category.id}}/" class="flex justify-between my-4 mx-4 py-4 px-4 border-[1px] border-white bg-white rounded-md text-[16px] hover:-translate-y-1 duration-100">
                 {{category.name}}
 
                 <i>{%if category.avaliable == 1%}

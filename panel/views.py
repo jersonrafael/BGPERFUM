@@ -12,7 +12,7 @@ from orders.models import *
 
 # Create your views here.
 def home_panel_view(request):
-    recent_sales = sale.objects.order_by('-date')[:4]
+    recent_sales = sale.objects.order_by('-date')
     recent_added_products = product.objects.order_by('-added_date')
     context = {
         'sales':recent_sales,
@@ -31,7 +31,7 @@ ALL VIEWS RELATED WITH THE PRODUCTS
 # VIEW TO SEE ALL PRODUCTS
 
 def products_panel_view(request):
-    model = product.objects.all()
+    model = product.objects.all().order_by('-added_date')
     paginator = Paginator(model, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -181,11 +181,9 @@ VIEWS TO MANAGE THE SELS OR ORDERS
 """
 
 def orders_panel_view(request):
-    form = sale_form()
-    model = sale.objects.order_by('-date')
+    recent_sales = sale.objects.order_by('-date')
     context = {
-        "form":form,
-        "sales":model
+        "sales":recent_sales
     }
     return render(request, template_name="panel/sales/sales_panel.html", context=context)
 
