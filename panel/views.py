@@ -143,6 +143,18 @@ def category_panel_view(request,pk):
     else:
         return render(request, template_name='panel/categorys/category.html',context=context)
 
+def edit_category_view(request,pk):
+    model = get_object_or_404(category,pk=pk)
+    form = Category_form(request.POST, request.FILES, instance=model)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect(categorys_panel_view)
+        else:
+            return redirect(categorys_panel_view) 
+    else:
+        return redirect(categorys_panel_view)
+
 def delete_category_panel_view(request,pk):
     model = get_object_or_404(category, pk=pk)
     context = {

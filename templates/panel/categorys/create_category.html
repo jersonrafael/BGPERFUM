@@ -7,15 +7,17 @@ Agregar Categoria
 {%block contend%}
 
 <div class="w-full h-screen">
-
-    <div class="my-4">
-        <a href="{% url 'panel_categorys' %}" class="bg-red-600 px-4 py-2 text-white" >Cancelar</a>
+    
+    <div class="my-4 mx-4 my-4 hover:-translate-y-1 duration-100">
+        <a href="{% url 'panel_categorys' %}" class="bg-black px-4 py-2 text-white" >Cancelar</a>
     </div>
     
-    <form method="post" class="">
-        {%csrf_token%}
-        {{form}}
-        <button type="submit" class="bg-blue-600 px-4 py-2 text-white my-8">Agregar</button>
-    </form>
+    <div class="inline-block h-[25rem] mx-6 py-4 px-2 bg-white border-[1px] border-black">
+        <form method="post" class="">
+            {%csrf_token%}
+            {{form}}
+            <button type="submit" class="my-40 py-2 px-4 border-[1px] border-black hover:-translate-y-1 duration-100">Agregar</button>
+        </form>
+    </div>
 </div>
 {%endblock%}

@@ -15,7 +15,11 @@ class Category_form(forms.ModelForm):
 
     # name = forms.CharField(label="Nombre de la Categoria",
     # error_messages={'required':'No dejes el campo vacio'}, 
-    # widget=forms.TextInput(attrs={'class':'text-blue-600','autocomplete':'off'}))
+        widgets={
+            'name': forms.TextInput(attrs={
+                'class':'border-[1px] border-black py-2 px-2'
+            })
+        }
 
 class Product_form(forms.ModelForm):
 

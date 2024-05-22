@@ -1,21 +1,26 @@
 {% extends "panel/base.html" %}
 
 {% block contend %}
-<section class="">
+<section class="w-[72rem] h-screen overflow-hidden">
+    <div class="ml-4 my-4 my-4 hover:-translate-y-1 duration-100">
+        <a href="/panel/categorys/" class="bg-black px-4 py-2 text-white">Cancelar</a>
+    </div>
+    
     <div>
-
-        <div class="ml-4 my-4">
-            <a href="/panel/categorys/" class="bg-orange-600 px-4 py-2 text-white">Cancelar</a>
-        </div>
-
         <span class="text-center">{{message}}</span>
-        <div class="w-screen flex justify-center">
-            <form method="post">
+
+        <div class="inline-block h-[25rem] mx-6 py-4 px-2 bg-white border-[1px] border-black">
+            <form method="post" class="">
                 {%csrf_token%}
                 {{form}}
-                <button type="submit">Modificar</button>
-                <a href="/panel/del/category/{{category.id}}/">Eliminar</a>
+                <div class="my-[40%]">
+                    <button type="submit" class="py-2 px-4 border-[1px] border-black my-4 hover:-translate-y-1 duration-100" >Modificar</button>
+                    <div class="inline-block hover:-translate-y-1 duration-100">
+                        <a href="/panel/del/category/{{category.id}}/" class="py-2 px-4 border-[1px] border-black my-4">Eliminar</a>
+                    </div>
+                </div>
             </form>
+
         </div>
     </div>
 </section>

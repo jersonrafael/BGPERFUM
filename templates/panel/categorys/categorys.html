@@ -6,7 +6,7 @@ Categorias
 {%endblock%}
 
 {%block contend%}
-<div class="w-[72rem] h-screen">
+<div class="w-[72rem] h-screen overflow-hidden">
     
     <div class="my-4 hover:-translate-y-1 duration-100">
         <a href="{% url 'panel_create_category' %}" class="bg-black px-4 py-2 text-white my-4 mx-2">Agregar Categoria</a>
@@ -14,7 +14,14 @@ Categorias
 
     <div class="">
         {%for category in categorys%}
-            <a href="/panel/edit/category/{{category.id}}/" class="flex justify-between my-4 mx-4 py-4 px-4 border-[1px] border-white bg-white rounded-md text-[16px] hover:-translate-y-1 duration-100">
+            <a href="/panel/category/{{category.id}}/" class="flex justify-between my-4 mx-4 py-4 px-4 
+            {% if category.avaliable == 1%}
+                bg-white
+            {% else %}
+                bg-gray-700
+                text-white
+            {%endif%}
+            rounded-md text-[16px] hover:-translate-y-1 duration-100">
                 {{category.name}}
 
                 <i>{%if category.avaliable == 1%}
