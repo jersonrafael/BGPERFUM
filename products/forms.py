@@ -32,20 +32,20 @@ class Product_form(forms.ModelForm):
             'description': ("Descripcion del Producto"),
             'price':("Precio del Producto"),
             'stock':("Catidad disponible del Producto"),
-            'diPscount_code':("Codigo de descuento (Opcional)"),
-            'avaliable':("Si el producto esta o no disponible"),
+            'discount_code':("Codigo de descuento (Opcional)"),
+            'avaliable':("Producto disponible"),
             'category':("Categoria del producto")
 
         }
         widgets={
             'image': forms.FileInput(attrs={'class': 'image-input_form inline-block text-sm'}),
-            'name': forms.TextInput(attrs={'class': 'name-input_form text-sm'}),
-            'description': forms.Textarea(attrs={'class': 'description-input_form flex text-sm'}),
-            'price': forms.TextInput(attrs={'class': 'price-input_form text-sm'}),
-            'stock': forms.TextInput(attrs={'class': 'stock-input_form text-sm'}),
+            'name': forms.TextInput(attrs={'class': 'name-input_form text-sm border-[1px] border-black px-2 py-2 my-2'}),
+            'description': forms.Textarea(attrs={'class': 'description-input_form flex text-sm h-[80px] border-[1px] border-black px-2 py-2 my-2'}),
+            'price': forms.TextInput(attrs={'class': 'price-input_form text-sm border-[1px] border-black px-2 py-2 my-2'}),
+            'stock': forms.TextInput(attrs={'class': 'stock-input_form text-sm border-[1px] border-black px-2 py-2 my-2'}),
             'discount_code': forms.Select(attrs={'class': 'discount_code-input_form text-sm'}),
             'avaliable': forms.CheckboxInput(attrs={'class': 'avaliable-input_form text-sm'}),
-            'category': forms.Select(attrs={'class': 'category-input_form text-sm'}),
+            'category': forms.Select(attrs={'class': 'category-input_form text-sm border-[1px] border-black px-2 py-2 my-2'}),
 
 
         }
@@ -75,10 +75,6 @@ class Product_form(forms.ModelForm):
                 'required': "El campo Categoría es requerido.",
             },
         }
-    # image= forms.FileField()
-    # name = forms.CharField(label="Nombre del Producto")
-    # description = forms.CharField(label="Descripcion del Producto",widget=forms.Textarea)
-    # price = forms.IntegerField(label="Precio del Producto")
 
 class sale_form(forms.ModelForm):
     class Meta:
@@ -87,5 +83,8 @@ class sale_form(forms.ModelForm):
         labels = {
             'product':('Nombre del producto'),
             'quantity':('Cantidad')
+        }
+        widgets= {
+            'quantity': forms.TextInput(attrs={'class': 'quantity-input_form text-sm border-[1px] border-black px-2 py-2 my-2'})
         }
         

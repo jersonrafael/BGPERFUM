@@ -57,7 +57,7 @@
         <ul class="flex wrap items-center mx-4">
             {% for product in recomended %}
             <li class="mx-2">
-                <a href="{{product.id}}">
+                <a href="/product/{{product.id}}/">
                     <img src="../../../{{product.image}}" alt=""
                         class="rounded-md md:w-[300px] md:h-[250px] object-contain">
                     <h2> {{product.name}} </h2>

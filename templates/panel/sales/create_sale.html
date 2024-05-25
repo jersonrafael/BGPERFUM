@@ -5,27 +5,20 @@ Registrar Venta
 {% endblock title %}
 
 {% block contend %}
-<section class="w-full">
-
-    <div>
-        <div class="my-4">
-            <a href="{% url 'panel_sales' %}" class="bg-red-600 px-4 py-2 text-white">Cancelar</a>
-        </div>
-
-        <h2 class="text-center text-2xl">Registrar Nueva Venta</h2>
-        <h4 class="text-center text-red-600">
-            {% if message %}
-                {{ message }}
-            {%else%}
-            {% endif %}
-        </h4>
-        <section class="flex justify-center items-center w-screen h-screen">
-            <form action="" method="post">
-                {%csrf_token%}
-                {{form}}
-                <button type="submit" class="bg-green-600 px-4 py-2 text-white my-8">Agregar Venta</button>
-            </form>
-        </section>
+<section class="w-full h-screen">
+    <div class="my-4 hover:-translate-y-1 duration-100">
+        <a href="{% url 'panel_sales' %}" class="bg-black px-4 py-2 mx-4 text-white">Cancelar</a>
     </div>
+
+    <p>
+        {{message}}
+    </p>
+    <section class="bg-white mx-12 border-[1px] border-black px-4 py-2 w-[22rem] h-[30rem]">
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form}}
+            <button type="submit" class="hover:-translate-y-1 duration-100 py-2 px-4 border-[1px] border-black my-[85%]">Agregar Venta</button>
+        </form>
+    </section>
 </section>
 {% endblock contend %}

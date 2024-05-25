@@ -5,20 +5,23 @@
 {% endblock title %}
 
 {% block contend %}
-<section class="w-[72rem] h-screen overflow-hidden">
-    <div class="my-4 mx-4">
-        <a href="{% url 'panel_products' %}" class="bg-black px-4 py-2 text-white">Cancelar</a>
+<section class="w-[72rem] h-screen">
+    <div class="my-4 mx-4 hover:-translate-y-1 duration-100">
+        <a href="{% url 'panel_products' %}" class="bg-black px-4 py-2 text-white ">Cancelar</a>
     </div>
 
     <div class="flex justify-center items-center bg-white mx-12 border-[1px] border-black">
-        <img src="../../../{{product.image}}" alt="{{product.name}}_img" class="w-[200px] h-[300px] object-contain border-2 border-black">
+        <img src="../../../{{product.image}}" alt="{{product.name}}_img" class="w-[250px] h-[300px] object-contain">
 
 
         <form action="" class="px-4 py-2">
             {% csrf_token %}
             {{form}}
-            <button type="submit">Guardar</button>
-            <a href="/panel/del/product/{{product.id}}/">Eliminar</a>
+            <button type="submit"
+                class="py-2 px-4 border-[1px] border-black my-4 hover:-translate-y-1 duration-100">Guardar</button>
+            <div class="py-2 px-4 border-[1px] border-black my-4 hover:-translate-y-1 duration-100 inline-block">
+                <a href="/panel/del/product/{{product.id}}/">Eliminar</a>
+            </div>
         </form>
     </div>
 </section>
