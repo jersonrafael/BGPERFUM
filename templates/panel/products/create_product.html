@@ -5,17 +5,17 @@ Agregar Producto
 {% endblock title %}
 
 {% block contend %}
-<section class="w-full">
+<section class="w-[72rem] h-screen ">
     
-    <div class="my-4">
-        <a href="{% url 'panel_products' %}" class="bg-red-600 px-4 py-2 text-white">Cancelar</a>
+    <div class="my-4 hover:-translate-y-1 duration-100">
+        <a href="{% url 'panel_products' %}" class="bg-black px-4 py-2 mx-4 text-white">Cancelar</a>
     </div>
 
     <span class="text-red my-4">{{message}}</span>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" class="bg-white mx-12 border-[1px] border-black px-4 py-2">
         {%csrf_token%}
         {{form}}
-        <button type="submit" class="bg-green-600 px-4 py-2 text-white">Crear</button>
+        <button type="submit" class="py-2 px-4 border-[1px] border-black my-4 hover:-translate-y-1 duration-100">Crear</button>
     </form>
 </section>
 {% endblock contend %}

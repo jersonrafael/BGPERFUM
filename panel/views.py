@@ -59,7 +59,7 @@ def create_product_view(request):
     context = {
         "form":form,
         'message':''
-    }
+}
 
     if request.method == 'POST':
         form = Product_form(request.POST, request.FILES)
@@ -157,7 +157,9 @@ def edit_category_view(request,pk):
 
 def delete_category_panel_view(request,pk):
     model = get_object_or_404(category, pk=pk)
+    form = Category_form(instance=model)
     context = {
+        'form':form,
         'category':model,
         'message':''
     }
@@ -165,7 +167,7 @@ def delete_category_panel_view(request,pk):
     if request.method == 'POST':
         model.delete()
         return redirect(categorys_panel_view)
-    return render(request, template_name='panel/categorys/delete_category.html', context=context)
+    return render(request, template_name='panel/categorys/category.html', context=context)
 
 # CREATE CATEGORY 
 def create_category_view(request):
@@ -201,10 +203,37 @@ def orders_panel_view(request):
 
 
 def order_panel_view(request,pk):
-    pass
+    model = get_object_or_404(sale, pk=pk)
+    form = sale_form(instance=model)
+    context = {
+        'sale':model,
+        'form':form,
+        'message':''
+    }
+    if request.method == 'POST':
+        form = sale_form(request.POST, instance=model)
+        if form.is_valid():
+            product_name = form.cleaned_data.get("product")
+            quantity = form.cleaned_data.get("quantity")
+            get_product = product.objects.get(name=product_name)
+            if get_product.stock <= 0:
+                context['message'] = 'Este producto tiene 0 unidades disponibles'
+                # return render(request, template_name='panel/sales/create_sale.html',context=context)
+            elif quantity > get_product.stock:
+                print(context)
+                context['message']= f'Este producto tiene menos de {quantity} unidades disponibles'
+                # return render(request, template_name='panel/sales/create_sale.html',context=context)
+            else:
+                # Restar la cantidad del stock y guardar el producto
+                get_product.stock -= quantity
+                get_product.save()
+                # Guardar la venta
+                form.save()
+                return redirect(orders_panel_view)
+    return render(request, template_name='panel/sales/sale.html',context=context)
 
 def create_order_panel_view(request):
-    form = sale_form(request.POST)
+    form = sale_form()
     context= {
         'form':form,
         'message':''
@@ -214,7 +243,6 @@ def create_order_panel_view(request):
         if form.is_valid():
             product_name = form.cleaned_data.get("product")
             quantity = form.cleaned_data.get("quantity")
-            
             get_product = product.objects.get(name=product_name)
             if get_product.stock <= 0:
                 context['message'] = 'Este producto tiene 0 unidades disponibles'
@@ -232,3 +260,8 @@ def create_order_panel_view(request):
                 return redirect(orders_panel_view)
 
     return render(request, template_name='panel/sales/create_sale.html',context=context)
+
+def delete_order_panel_view(request,pk):
+    model = get_object_or_404(sale, pk=pk)
+    model.delete()
+    return redirect(orders_panel_view)

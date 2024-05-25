@@ -1,0 +1,26 @@
+{% extends "panel/base.html" %}
+
+{% block contend %}
+
+
+<section class="h-screen w-screen">
+    <div class="my-4 hover:-translate-y-1 duration-100">
+        <a href="{% url 'panel_sales' %}" class="bg-black px-4 py-2 mx-4 text-white">Cancelar</a>
+    </div>
+
+    <div class="h-[25rem] inline-block bg-white mx-12 border-[1px] border-black py-4 px-2">
+        <p>
+            {{message}}
+        </p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit"
+                class="py-2 px-4 border-[1px] border-black my-[70%] hover:-translate-y-1 duration-100">Guardar</button>
+            <div class="py-2 px-4 border-[1px] border-black my-[70%] hover:-translate-y-1 duration-100 inline-block">
+                <a href="/panel/del/sale/{{sale.id}}/">Eliminar</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock contend %}

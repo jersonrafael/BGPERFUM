@@ -20,7 +20,7 @@ urlpatterns = [
     path('sale/<int:pk>/', order_panel_view, name='panel_sale'),
     path('add/sale/', create_order_panel_view, name='panel_create_sale'),
     path('edit/sale/', create_order_panel_view, name='panel_create_sale'),
-    path('del/sale/', create_order_panel_view, name='panel_create_sale'),
+    path('del/sale/<int:pk>/', delete_order_panel_view, name='panel_delete_sale'),
 
 
     # path('panel/delete/<int:pk>', products_panel_view, name='delete'),
