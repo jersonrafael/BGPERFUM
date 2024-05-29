@@ -4,9 +4,9 @@ from .views import *
 urlpatterns = [
     path('', home_panel_view, name='home_panel'),
     
-    path('products/', include('products.urls'), name='panel_products'),
+    path('products/', include('products.urls')),
 
-    path('categorys/', include('products.urls'), name='panel_categorys'),
+    path('categorys/', include('products.urls')),
     
-    path('sales/', include('orders.urls'), name='panel_sales'),
+    path('sales/', include('orders.urls')),
 ]
