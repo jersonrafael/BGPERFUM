@@ -1,16 +1,22 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from products.models import *
+from accounts.models import *
 from django.http import HttpResponse
 
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+\
 
 # Create your views here.
-def home(request):
+def home_view(request):
     perfums = product.objects.all()[:4]
     context = {
         'perfums': perfums
     }
     return render(request, template_name='shop/index.html', context=context)
 
+def about_view(request):
+    pass
 
 def products(request):
     category_model = category.objects.all()
@@ -67,3 +73,34 @@ def category_view(request,pk):
         'products':products_model
     }
     return render(request, template_name='shop/filter_products.html', context=context)
+
+
+def subscribe_view(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        queryset = client.objects.filter(email=email)
+        if queryset == None:
+            # Load the HTML template
+            html_content = render_to_string('email_template.html')
+
+            # Create EmailMessage object
+            email = EmailMessage(
+                'Subject of the Email',  # Subject
+                html_content,            # HTML content
+                'jrrvgamer@gmail.com',     # From email address
+                ['jersonrafael800@gmail.com']      # To email addresses
+            )
+
+            # Set content type to HTML
+            email.content_subtype = "html"
+
+            # Send email
+            email.send()
+            create_client = client.objects.create(email=request.POST['email'])
+            create_client.save()
+            return redirect('home')
+        else:
+            return redirect('home')
+    else:
+        return redirect('home')
+                

@@ -16,7 +16,7 @@
                 <div class="my-[40%]">
                     <button type="submit" class="py-2 px-4 border-[1px] border-black my-4 hover:-translate-y-1 duration-100" >Modificar</button>
                     <div class="inline-block hover:-translate-y-1 duration-100">
-                        <a href="/panel/del/category/{{category.id}}/" class="py-2 px-4 border-[1px] border-black my-4">Eliminar</a>
+                        <a href="{% url 'delete_panel_category' category.id %}" class="py-2 px-4 border-[1px] border-black my-4">Eliminar</a>
                     </div>
                 </div>
             </form>

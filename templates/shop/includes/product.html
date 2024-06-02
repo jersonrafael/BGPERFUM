@@ -1,7 +1,9 @@
+{% load static %}
+
 <main class="my-6">
     <div class="flex justify-center items-center my-4">
         <div class="w-[550px] mx-4">
-            <img src="../../../{{product.image}}" alt="" class="object-contain">
+            <img src=" /media/{{product.image}} " alt="{{product.image}}" class="object-contain">
         </div>
 
         <div>
@@ -40,7 +42,7 @@
 </main>
 
 <div class="flex justify-center my-8">
-    <a href="/products/{{product.category.id}}/" class="flex items-center bg-black text-white px-4 py-2">
+    <a href=" {% url "category_products" product.category.id %} " class="flex items-center bg-black text-white px-4 py-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
             class="bi bi-arrow-left-short" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -57,8 +59,8 @@
         <ul class="flex wrap items-center mx-4">
             {% for product in recomended %}
             <li class="mx-2">
-                <a href="/product/{{product.id}}/">
-                    <img src="../../../{{product.image}}" alt=""
+                <a href=" {% url "product" product.id %} ">
+                    <img src="/media/{{product.image}}" alt="{{product.image}}"
                         class="rounded-md md:w-[300px] md:h-[250px] object-contain">
                     <h2> {{product.name}} </h2>
                     <h4></h4>

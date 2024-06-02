@@ -14,7 +14,7 @@ Categorias
 
     <div class="">
         {%for category in categorys%}
-            <a href="/panel/category/{{category.id}}/" class="flex justify-between my-4 mx-4 py-4 px-4 
+            <a href=" {% url 'panel_category' category.id %} " class="flex justify-between my-4 mx-4 py-4 px-4 
             {% if category.avaliable == 1%}
                 bg-white
             {% else %}

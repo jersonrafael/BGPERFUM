@@ -5,20 +5,30 @@ Inicio
 {% endblock title %}
 
 {% block contend %}
-<h2 class='bg-black text-center text-sm text-white py-2'>PRODUCTOS 100% ORIGINALES</h2>
+<h2 class="bg-black text-center text-sm text-white py-2">
+    PRODUCTOS 100% ORIGINALES
+</h2>
 <main class="mb-4 text-[#FFFCF5]">
     <div class="flex justify-center items-center mt-4 mx-2 mb-4">
         
         <div class="w-2/4 mr-4">
             <h1 class="sm:text-4xl md:text-8xl text-black">BG <i>PERFUM</i></h1>
-            <p class="rounded text-gray-900 mt-4 md:text-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p class="text-gray-900 mt-4 md:text-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Cumque ipsam sed architecto facere, velit impedit alias
                 accusamus incidunt quo corporis tenetur molestias itaque? Pariatur officiis repellendus suscipit
                 voluptatibus
-                commodi quaerat.</p>
+            </p>
+            <br>
+            <p class="text-gray-900 mt-4 md:text-2xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis consectetur molestiae dicta odio voluptatibus qui explicabo eveniet dolorem praesentium mollitia recusandae ex aspernatur, dolores, accusantium sint itaque minus assumenda a?
+            </p>
 
             <div class="my-8">
-                <a href="" class="border-b-2 border-black text-black text-xl py-2">Quiero escoger mi fragancia</a>
+                <a href="{% url 'products' %}" class="text-black py-[2px] px-8 bg-black inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-arrow-right inline-block text-white" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+                </a>
             </div>
         </div>
         
@@ -49,7 +59,7 @@ Inicio
             <img src="../../static/src/bottle-perfume_979408-1152.jpg" alt="bgperfum_img" class='place-self-center rounded-md'>
         </div>
 
-        <div class='place-self-center text-2xl'>
+        <div class='place-self-center md:text-2xl'>
             <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -58,7 +68,7 @@ Inicio
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
         </div>
 
-        <div class='place-self-center text-2xl'>
+        <div class='place-self-center md:text-2xl'>
             <h2 class=''>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -100,12 +110,14 @@ Inicio
         <p class="text-black">
             Suscríbete para tener acceso a ofertas especiales, descuentos y regalos. ¡Con tu suscripción obtendrás un 10% de descuento en la totalidad de tu primera compra!
         </p>
-        <form action="" class="my-2 flex justify-center items-center">
-            <input type="email" name="" id="" placeholder="Introduce tu correo" class="bg-inherit border-black border-b-2 outline-none text-black w-[400px] text-xl">
+        <form action=" {% url 'news_letter' %} " class="my-2 flex justify-center items-center" method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" id="" placeholder="Introduce tu correo" class="bg-inherit border-black border-b-2 outline-none text-black md:w-[400px] text-xl" autocomplete="off">
             <button type="submit" class="text-black border-black border-b-2 outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-              </svg></button>
+              </svg>
+            </button>
         </form>
     </section>
 </main>
