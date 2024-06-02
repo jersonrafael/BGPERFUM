@@ -1,8 +1,11 @@
 {% extends "panel/base.html" %} {% block title %} Ventas {% endblock title %}
 {% block contend %}
 <div class="w-[72rem] h-screen overflow-hidden">
-  <div class="my-4 hover:-translate-y-1 duration-100">
-    <a href="{% url 'panel_create_sale' %}" class="bg-black px-4 py-2 mx-2 text-white">Registrar nueva venta</a>
+  <div class="flex items-center justify-between">
+    <div class=" my-4 hover:-translate-y-1 duration-100">
+      <a href="{% url 'panel_create_sale' %}" class="bg-black px-4 py-2 mx-2 text-white">Registrar nueva venta</a>
+    </div>
+    <h2 class="text-sm">Total generado en ventas ({{total_of_sales}})</h2>
   </div>
 
   <section class="flex flex-wrap justify-start mt-2">

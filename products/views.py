@@ -15,12 +15,14 @@ from orders.models import *
 
 def products_panel_view(request):
     model = product.objects.all().order_by('-added_date')
+    count_products = product.objects.count()
     paginator = Paginator(model, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     context = {
         "products":model,
-        "page_obj": page_obj
+        "page_obj": page_obj,
+        'number_of_products':count_products
     }
     return render(request, template_name="panel/products/products.html", context=context)
 
@@ -39,9 +41,10 @@ def product_panel_view(request,pk):
 
 def create_product_view(request):
     form = Product_form()
+
     context = {
         "form":form,
-        'message':''
+        'message':'',
 }
 
     if request.method == 'POST':

@@ -8,6 +8,7 @@ from products.forms import *
 
 from products.models import *
 from orders.models import *
+from categorys.models import *
 
 """
 

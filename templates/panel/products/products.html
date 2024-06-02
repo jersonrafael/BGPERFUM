@@ -1,66 +1,67 @@
-{% extends 'panel/base.html'%}
+{% extends 'panel/base.html' %}
 
-{%block title%}
-Productos
-{%endblock%}
+{% block title %}
+  Productos
+{% endblock %}
 
-{%block contend%}
-<div class="overflow-hidden bg-gray-200">
-        <div class="flex items-center justify-between">
-            <a href="{% url 'panel_create_product' %}" class="bg-black px-4 py-2 text-white my-4 mx-2 hover:-translate-y-1 duration-100">Agregar Producto</a>
-            <h2 class="text-sm">productos totales ()</h2>
-        </div>
+{% block contend %}
+  <div class="h-screen w-full bg-gray-200">
+    <div class="flex items-center justify-between">
+      <a href="{% url 'panel_create_product' %}" class="bg-black px-4 py-2 text-white my-4 mx-2 hover:-translate-y-1 duration-100">Agregar Producto</a>
+      <h2 class="text-sm">productos totales ({{number_of_products}})</h2>
+    </div>
 
     <section class="flex justify-start items-center flex-wrap">
-        {% for product in page_obj%}
-        <a href="/panel/products/{{product.id}}/" class="hover:-translate-y-1 duration-100 bg-white mx-2 my-2 rounded-md">
-            <div class="my-4 mx-2 ">
-                <div class="md:my-4 w-full">
-                    {% if product.avaliable != False%}
-                        <h2 class="bg-black px-4 py-2 text-white text-sm rounded">Disponible</h2>
-                    {%else%}
-                        <h2 class="bg-gray-700 px-4 py-2 text-white text-sm rounded">Agotado</h2>
-                    {%endif%}
-                </div>
+      <div>
+        {% for product in page_obj %}
+          <a href="/panel/products/{{ product.id }}/" class="hover:-translate-y-1 duration-100 bg-white mx-2 my-2 rounded-md">
+            <div class="my-4 mx-2">
+              <div class="md:my-4 w-full">
+                {% if product.avaliable != False %}
+                  <h2 class="bg-black px-4 py-2 text-white text-sm rounded">Disponible</h2>
+                {% else %}
+                  <h2 class="bg-gray-700 px-4 py-2 text-white text-sm rounded">Agotado</h2>
+                {% endif %}
+              </div>
 
-                <div class="">
-                    <img src="../../../{{product.image}} " alt="BGPERFUM_product" class="object-contain w-60 h-40 ">
-                </div>
+              <div class="">
+                <img src="../../../{{ product.image }} " alt="BGPERFUM_product" class="object-contain w-60 h-40" />
+              </div>
 
-                <div class="text-sm">
-                    <h3><i>Nombre:</i> {{product.name}} </h3>
-                    <p><i>Descripcion:</i> {{product.description}}</p>
-                    <p><i>Cantidad Disponible:</i>
-                        {% if product.stock <= 0 %}
-                            No hay unidades
-                        {% else %}
-                            {{product.stock}}
-                        {%endif%}
-                    </p>
-                    <h4><i>Precio:</i> {{product.price}}$</h4>            
-                </div>
+              <div class="text-sm">
+                <h3><i>Nombre:</i> {{ product.name }}</h3>
+                <p>
+                  <i>Descripcion:</i> {{ product.description }}
+                </p>
+                <p>
+                  <i>Cantidad Disponible:</i>
+                  {% if product.stock <= 0 %}
+                    No hay unidades
+                  {% else %}
+                    {{ product.stock }}
+                  {% endif %}
+                </p>
+                <h4><i>Precio:</i> {{ product.price }}$</h4>
+              </div>
             </div>
-        </a>
-        {%endfor%}
-
-        
+          </a>
+        {% endfor %}
+      </div>
     </section>
     <div class="pagination text-center">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; Inicio</a>
-                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
-            {% endif %}
-    
-            <span class="current">
-                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-            </span>
-    
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">Final &raquo;</a>
-            {% endif %}
-        </span>
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; Inicio</a>
+          <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span class="current">Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.</span>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">Final &raquo;</a>
+        {% endif %}
+      </span>
     </div>
-</div>
-{%endblock%}
+  </div>
+{% endblock %}

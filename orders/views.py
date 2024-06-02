@@ -20,8 +20,10 @@ VIEWS TO MANAGE THE SELS OR ORDERS
 
 def orders_panel_view(request):
     recent_sales = sale.objects.order_by('-date')
+    total_of_sales = sale.objects.count()
     context = {
-        "sales":recent_sales
+        "sales":recent_sales,
+        'total_of_sales':total_of_sales
     }
     return render(request, template_name="panel/sales/sales_panel.html", context=context)
 

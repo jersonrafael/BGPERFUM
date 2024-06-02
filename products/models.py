@@ -1,13 +1,6 @@
 from django.db import models
-
+from categorys.models import *
 # Create your models here.
-
-class category(models.Model):
-    name = models.CharField(max_length=255)
-    avaliable = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"{self.name}"
 
 class discount(models.Model):
     code = models.CharField(max_length=200)
@@ -17,12 +10,6 @@ class discount(models.Model):
 
     def __str__(self):
         return f"{self.code}"
-
-class olfactory_family(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return f"{self.name}"
 
 class product(models.Model):
     image = models.ImageField(upload_to="static",default=None)
