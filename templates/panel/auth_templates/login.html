@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login</title>
+  </head>
+  <body class="bg-gray-200 overflow-hidden">
+    <main>
+      <div class="h-screen flex items-center justify-center">
+        <div class="bg-white px-6 py-4">
+            <h2 class="text-6xl">Hola,</h2>
+            <h2 class="text-4xl">Bienvenido de vuelta</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="">Nombre de usuario:</label>
+                <input type="text" name="username" class="text-xl block my-4 w-[24rem] h-[4rem] rounded-md border-b-2 border-black" autocomplete="off"/>
+                <label for="">Contraseña:</label>
+                <input type="password" name="password" class="text-xl block my-4 w-[24rem] h-[4rem] rounded-md border-b-2 border-black" autocomplete="off"/>
+                <button type="submit" class="block text-2xl bg-black text-white px-8 py-2">Login</button>
+              </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

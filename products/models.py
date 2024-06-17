@@ -12,7 +12,7 @@ class discount(models.Model):
         return f"{self.code}"
 
 class product(models.Model):
-    image = models.ImageField(upload_to="static",default=None)
+    image = models.ImageField(upload_to="products/",default=None)
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.FloatField()

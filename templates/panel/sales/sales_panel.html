@@ -1,5 +1,8 @@
-{% extends "panel/base.html" %} {% block title %} Ventas {% endblock title %}
+{% extends 'panel/base.html' %} {% block title %}
+  Ventas
+{% endblock %}
 {% block contend %}
+<<<<<<< HEAD
 <div class="w-[72rem] h-screen overflow-hidden">
   <div class="flex items-center justify-between">
     <div class=" my-4 hover:-translate-y-1 duration-100">
@@ -16,9 +19,32 @@
         <h2><i>Producto: </i>{{sale.product}}</h2>
         <h2><i>Cantidad: </i>{{sale.quantity}}</h2>
         <h2><i>{{sale.date}}</i></h2>
+=======
+  <div class="w-[72rem] h-screen overflow-hidden">
+    <div class="flex items-center justify-between">
+      <div class="my-4 hover:-translate-y-1 duration-100">
+        <a href="{% url 'panel_create_sale' %}" class="bg-black px-4 py-2 mx-2 text-white">Registrar nueva venta</a>
+>>>>>>> routes
       </div>
-    </a>
-    {%endfor%}
-  </section>
-</div>
-{% endblock contend %}
+      <h2 class="text-md">
+        Total en ventas{% if total_of_sales is not None %}
+          {{ total_of_sales }}$
+        {% endif %}
+      </h2>
+    </div>
+
+    <section class="flex flex-wrap justify-start mt-2">
+      {% for sale in sales %}
+        <a href="{% url 'panel_sale' sale.id %}" class="bg-white mx-2 my-2 px-2 py-2 hover:-translate-y-1 duration-100 rounded-md">
+          <div class="mx-4 text-[14px]">
+            <img src="/media/{{ sale.product.image }}" alt="" class="w-[200px] h-[150px] object-contain" />
+            <h2><i>Producto:</i>{{ sale.product }}</h2>
+            <h2><i>Cantidad:</i>{{ sale.quantity }}</h2>
+            <h2>Total <i>{{ sale.total }}$</i></h2>
+            <h2><i>{{ sale.date }}</i></h2>
+          </div>
+        </a>
+      {% endfor %}
+    </section>
+  </div>
+{% endblock %}

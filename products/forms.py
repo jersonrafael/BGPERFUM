@@ -25,7 +25,7 @@ class Product_form(forms.ModelForm):
 
     class Meta:
         model = product
-        fields = ["image","name","description","price","stock","discount_code","avaliable","category"]
+        fields = ["image","name","description","price","stock","avaliable","category"]
         labels = {
             'image': ("Imagen del Producto"),
             'name': ("Nombre"),
@@ -80,6 +80,7 @@ class sale_form(forms.ModelForm):
     class Meta:
         model = sale
         fields = '__all__'
+        exclude = ["total"]
         labels = {
             'product':('Nombre del producto'),
             'quantity':('Cantidad')

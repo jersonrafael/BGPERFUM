@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block contend %}
+<<<<<<< HEAD
   <div class="h-screen w-full bg-gray-200">
     <div class="flex items-center justify-between">
       <a href="{% url 'panel_create_product' %}" class="bg-black px-4 py-2 text-white my-4 mx-2 hover:-translate-y-1 duration-100">Agregar Producto</a>
@@ -16,6 +17,19 @@
         {% for product in page_obj %}
           <a href="/panel/products/{{ product.id }}/" class="hover:-translate-y-1 duration-100 bg-white mx-2 my-2 rounded-md">
             <div class="my-4 mx-2">
+=======
+  <div class="h-screen w-[72rem] bg-gray-200">
+    <div class="flex items-center justify-between">
+      <a href="{% url 'panel_create_product' %}" class="bg-black px-4 py-2 text-white my-4 mx-2 hover:-translate-y-1 duration-100">Agregar Producto</a>
+      <h2 class="text-sm">productos totales ({{ number_of_products }})</h2>
+    </div>
+
+    <section class="flex justify-start items-center flex-wrap">
+      <div class="">
+        {% for product in page_obj %}
+          <a href="{% url 'panel_product' product.id %}" class="hover:-translate-y-1 duration-100 mx-2 my-2">
+            <div class="my-4 mx-2 bg-white rounded-md px-2 py-2">
+>>>>>>> routes
               <div class="md:my-4 w-full">
                 {% if product.avaliable != False %}
                   <h2 class="bg-black px-4 py-2 text-white text-sm rounded">Disponible</h2>
@@ -25,7 +39,11 @@
               </div>
 
               <div class="">
+<<<<<<< HEAD
                 <img src="../../../{{ product.image }} " alt="BGPERFUM_product" class="object-contain w-60 h-40" />
+=======
+                <img src="/media/{{ product.image }} " alt="BGPERFUM_product" class="object-contain w-60 h-40" />
+>>>>>>> routes
               </div>
 
               <div class="text-sm">
