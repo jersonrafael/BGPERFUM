@@ -15,6 +15,8 @@ from pathlib import Path
 import environ
 import os
 
+import dj_database_url
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -33,9 +35,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+# DEBUG = env('DEBUG_MODE')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
@@ -53,6 +55,8 @@ INSTALLED_APPS = [
 
     "django_browser_reload",
 
+    "whitenoise.runserver_nostatic",
+
     'accounts',
     'orders',
     'products',
@@ -63,6 +67,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -97,23 +102,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#     'default': env.db(),
-
-#     'extra': env.db_url(
-#         'SQLITE_URL',
-#         default='sqlite:////tmp/db.sqlite3'
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default=env('DATABASE_URL'),
+#         conn_max_age=600
 #     )
 # }
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('db_name'),
+        'USER': env('db_username'),
+        'PASSWORD': env('db_password'),
+        'HOST': env('db_host'),
+        'PORT': env('db_port'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -148,9 +154,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = "var/static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = "static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -160,11 +169,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'gmail.example.com'  # SMTP server host
-EMAIL_PORT = 587  # SMTP server port (587 for TLS, 465 for SSL)
-# EMAIL_USE_TLS = True  True for TLS, False for SSL
-EMAIL_HOST_USER = 'jersonrafael800@gmail.com'  # SMTP server username
-EMAIL_HOST_PASSWORD = 'Jeffer89.'  # SMTP server password
-EMAIL_USE_SSL = False  # Set to True if using SSL
-DEFAULT_FROM_EMAIL = 'jersonrafael800@gmail.com'  # Default sender email address
+WAITRESS_HOST = '127.0.0.1'
+WAITRESS_PORT = 8000

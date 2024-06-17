@@ -22,11 +22,7 @@ VIEWS TO MANAGE THE SELS OR ORDERS
 @login_required
 def orders_panel_view(request):
     recent_sales = sale.objects.order_by('-date')
-<<<<<<< HEAD
-    total_of_sales = sale.objects.count()
-=======
     total_of_sales = sale.objects.all().aggregate(total_sales=Sum('total'))['total_sales']
->>>>>>> routes
     context = {
         "sales":recent_sales,
         'total_of_sales':total_of_sales

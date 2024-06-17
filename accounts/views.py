@@ -7,15 +7,6 @@ from django.contrib.auth import logout
 
 # Create your views here.
 def login_view(request):
-<<<<<<< HEAD
-    pass
-
-def register_view(request):
-    pass
-
-def logout_view(request):
-    pass
-=======
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -34,4 +25,3 @@ def register_view(request):
 def logout_view(request):
     logout(request)
     return redirect('home')
->>>>>>> routes
