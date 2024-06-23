@@ -35,9 +35,13 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = env('DEBUG_MODE')
+DEBUG = env('DEBUG_MODE')
 
 ALLOWED_HOSTS = ['*']
+
+CORS_ALLOWED_ORIGINS = ['https://railway.app/','https://bgperfum-production.up.railway.app']
+
+CSRF_TRUSTED_ORIGINS = ['https://railway.app/','https://bgperfum-production.up.railway.app']
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
